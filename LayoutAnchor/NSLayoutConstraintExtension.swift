@@ -10,21 +10,21 @@ import UIKit
 
 @available(iOS 8.0, *)
 extension NSLayoutConstraint {
-    public func active() {
+    public func activate() {
         self.isActive = true
     }
     
-    public func deactive() {
+    public func deactivate() {
         self.isActive = false
     }
 }
 
 @available(iOS 8.0, *)
 extension Array where Element == NSLayoutConstraint {
-    public func active() {
+    public func activate() {
         NSLayoutConstraint.activate(self)
     }
-    public func deactive() {
+    public func deactivate() {
         NSLayoutConstraint.deactivate(self)
     }
 }
