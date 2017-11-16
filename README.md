@@ -103,3 +103,5 @@ To integrate LayoutAnchor into your Xcode project using Carthage, specify it in 
 ```ogdl
 github "yume190/LayoutAnchor" ~> 4.0
 ```
+
+Run `carthage update --platform ios` to build the framework and drag the built LayoutAnchor.framework into your Xcode project.
