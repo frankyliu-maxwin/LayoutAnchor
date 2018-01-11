@@ -49,13 +49,13 @@ extension AutoLayoutUtil {
             let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
             let result = [
                 anchorable.leading == view.leading - offset,
-                anchorable.width == width
+                view.width == width
             ]
             return result + topBottom
         } else {
             let result = [
                 vc.view.leadingAttribute == view.leadingAttribute - offset,
-                vc.view.widthAttribute == width
+                view.widthAttribute == width
             ]
             return result + topBottom
         }
@@ -68,13 +68,13 @@ extension AutoLayoutUtil {
             let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
             let result = [
                 anchorable.trailing == view.trailing + offset,
-                anchorable.width == width
+                view.width == width
             ]
             return result + topBottom
         } else {
             let result = [
                 vc.view.trailingAttribute == view.trailingAttribute + offset,
-                vc.view.widthAttribute == width
+                view.widthAttribute == width
             ]
             return result + topBottom
         }
@@ -104,13 +104,13 @@ extension AutoLayoutUtil {
             let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
             let result = [
                 anchorable.top == view.top - offset,
-                anchorable.height == height
+                view.height == height
             ]
             return result + LeadTrail
         } else {
             let result = [
                 vc.view.topAttribute == view.topAttribute - offset,
-                vc.view.heightAttribute == height
+                view.heightAttribute == height
             ]
             return result + LeadTrail
         }
@@ -122,13 +122,13 @@ extension AutoLayoutUtil {
             let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
             let result = [
                 anchorable.bottom == view.bottom + offset,
-                anchorable.height == height
+                view.height == height
             ]
             return result + LeadTrail
         } else {
             let result = [
                 vc.view.bottomAttribute == view.bottomAttribute + offset,
-                vc.view.heightAttribute == height
+                view.heightAttribute == height
             ]
             return result + LeadTrail
         }
