@@ -11,26 +11,36 @@ import UIKit
 public struct AutoLayoutUtil {}
 
 extension AutoLayoutUtil {
-    public static func match(parent:UIView,child:UIView,offset:UIEdgeInsets = UIEdgeInsets()) -> [NSLayoutConstraint] {
-        return [
-            parent.topAttribute == child.topAttribute - offset.top,
-            parent.bottomAttribute == child.bottomAttribute + offset.bottom,
-            parent.trailingAttribute == child.trailingAttribute + offset.right,
-            parent.leadingAttribute == child.leadingAttribute - offset.left
-        ]
+    public static func match(parent: UIView, child: UIView, offset:UIEdgeInsets = UIEdgeInsets(), isSafeArea: Bool = true) -> [NSLayoutConstraint] {
+        if #available(iOS 11.0, *) {
+            let anchorable = AutoLayoutUtil.anchorable(view: parent, isSafeArea: isSafeArea)
+            return [
+                anchorable.top == child.top - offset.top,
+                anchorable.bottom == child.bottom + offset.bottom,
+                anchorable.trailing == child.trailing - offset.right,
+                anchorable.leading == child.leading + offset.left
+            ]
+        } else {
+            return [
+                parent.topAttribute == child.topAttribute - offset.top,
+                parent.bottomAttribute == child.bottomAttribute + offset.bottom,
+                parent.trailingAttribute == child.trailingAttribute + offset.right,
+                parent.leadingAttribute == child.leadingAttribute - offset.left
+            ]
+        }
     }
 }
 
 // MARK: 靠齊左右
 extension AutoLayoutUtil {
     @available(iOS 11.0, *)
-    private static func anchorable(vc: UIViewController, isSafeArea: Bool = true) -> LayoutAnchorable {
-        return isSafeArea ? vc.view.safeAreaLayoutGuide : vc.view
+    private static func anchorable(view: UIView, isSafeArea: Bool = true) -> LayoutAnchorable {
+        return isSafeArea ? view.safeAreaLayoutGuide : view
     }
     
     private static func matchTopBottom(vc: UIViewController,view: UIView, isSafeArea: Bool = true) -> [NSLayoutConstraint] {
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             return [
                 anchorable.top == view.top,
                 anchorable.bottom == view.bottom
@@ -46,7 +56,7 @@ extension AutoLayoutUtil {
     public static func alignLeft(vc:UIViewController,view:UIView,width:CGFloat,offset:CGFloat = 0, isSafeArea: Bool = true) -> [NSLayoutConstraint] {
         let topBottom = AutoLayoutUtil.matchTopBottom(vc: vc, view: view, isSafeArea: isSafeArea)
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             let result = [
                 anchorable.leading == view.leading - offset,
                 view.width == width
@@ -65,7 +75,7 @@ extension AutoLayoutUtil {
         
         let topBottom = AutoLayoutUtil.matchTopBottom(vc: vc, view: view, isSafeArea: isSafeArea)
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             let result = [
                 anchorable.trailing == view.trailing + offset,
                 view.width == width
@@ -85,7 +95,7 @@ extension AutoLayoutUtil {
 extension AutoLayoutUtil {
     private static func matchLeadTrail(vc: UIViewController, view: UIView, isSafeArea: Bool = true) -> [NSLayoutConstraint] {
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             return [
                 anchorable.leading == view.leading,
                 anchorable.trailing == view.trailing
@@ -101,7 +111,7 @@ extension AutoLayoutUtil {
     public static func alignTop(vc: UIViewController, view: UIView, height: CGFloat, offset: CGFloat = 0, isSafeArea: Bool = true) -> [NSLayoutConstraint] {
         let LeadTrail = AutoLayoutUtil.matchLeadTrail(vc: vc, view: view, isSafeArea: isSafeArea)
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             let result = [
                 anchorable.top == view.top - offset,
                 view.height == height
@@ -119,7 +129,7 @@ extension AutoLayoutUtil {
     public static func alignBottom(vc: UIViewController,view: UIView, height: CGFloat, offset: CGFloat = 0, isSafeArea: Bool = true) -> [NSLayoutConstraint] {
         let LeadTrail = AutoLayoutUtil.matchLeadTrail(vc: vc, view: view, isSafeArea: isSafeArea)
         if #available(iOS 11.0, *) {
-            let anchorable = AutoLayoutUtil.anchorable(vc: vc, isSafeArea: isSafeArea)
+            let anchorable = AutoLayoutUtil.anchorable(view: vc.view, isSafeArea: isSafeArea)
             let result = [
                 anchorable.bottom == view.bottom + offset,
                 view.height == height
