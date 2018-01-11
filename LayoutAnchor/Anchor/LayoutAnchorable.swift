@@ -28,19 +28,19 @@ public protocol LayoutAnchorable:DefualtLayoutAnchorable {
 @available(iOS 9.0, *)
 extension LayoutAnchorable {
     public var leading : LayoutAnchor<NSLayoutXAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.leadingAnchor) }
+        return LayoutAnchor(anchor: self.leadingAnchor)
     }
     public var trailing : LayoutAnchor<NSLayoutXAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.trailingAnchor) }
+         return LayoutAnchor(anchor: self.trailingAnchor)
     }
     public var left : LayoutAnchor<NSLayoutXAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.leftAnchor) }
+         return LayoutAnchor(anchor: self.leftAnchor)
     }
     public var right : LayoutAnchor<NSLayoutXAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.rightAnchor) }
+         return LayoutAnchor(anchor: self.rightAnchor)
     }
     public var centerX : LayoutAnchor<NSLayoutXAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.centerXAnchor) }
+         return LayoutAnchor(anchor: self.centerXAnchor)
     }
 }
 
@@ -48,13 +48,13 @@ extension LayoutAnchorable {
 @available(iOS 9.0, *)
 extension LayoutAnchorable {
     public var top : LayoutAnchor<NSLayoutYAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.topAnchor) }
+         return LayoutAnchor(anchor: self.topAnchor)
     }
     public var bottom : LayoutAnchor<NSLayoutYAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.bottomAnchor) }
+         return LayoutAnchor(anchor: self.bottomAnchor)
     }
     public var centerY : LayoutAnchor<NSLayoutYAxisAnchor> {
-        get { return LayoutAnchor(anchor: self.centerYAnchor) }
+         return LayoutAnchor(anchor: self.centerYAnchor)
     }
 }
 
@@ -62,9 +62,9 @@ extension LayoutAnchorable {
 @available(iOS 9.0, *)
 extension LayoutAnchorable {
     public var width : LayoutAnchor<NSLayoutDimension> {
-        get { return LayoutAnchor(anchor: self.widthAnchor) }
+         return LayoutAnchor(anchor: self.widthAnchor)
     }
     public var height : LayoutAnchor<NSLayoutDimension> {
-        get { return LayoutAnchor(anchor: self.heightAnchor) }
+         return LayoutAnchor(anchor: self.heightAnchor)
     }
 }
