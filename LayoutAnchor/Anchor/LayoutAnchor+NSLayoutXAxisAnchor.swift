@@ -12,13 +12,13 @@ import UIKit
 @available(iOS 11.0, *)
 extension LayoutAnchorExtension where Self == LayoutAnchor<NSLayoutXAxisAnchor> {
     public func equalToSystem(anchor:Self,multiplier: CGFloat) -> NSLayoutConstraint {
-        return self.anchor.constraintEqualToSystemSpacingAfter(anchor.anchor, multiplier: multiplier)
+        return self.anchor.constraint(equalToSystemSpacingAfter: anchor.anchor, multiplier: multiplier)
     }
     public func greaterThanOrEqualToSystem(anchor:Self,multiplier: CGFloat) -> NSLayoutConstraint {
-        return self.anchor.constraintGreaterThanOrEqualToSystemSpacingAfter(anchor.anchor, multiplier: multiplier)
+        return self.anchor.constraint(greaterThanOrEqualToSystemSpacingAfter: anchor.anchor, multiplier: multiplier)
     }
     public func lessThanOrEqualToSystem(anchor:Self,multiplier: CGFloat) -> NSLayoutConstraint {
-        return self.anchor.constraintLessThanOrEqualToSystemSpacingAfter(anchor.anchor, multiplier: multiplier)
+        return self.anchor.constraint(lessThanOrEqualToSystemSpacingAfter: anchor.anchor, multiplier: multiplier)
     }
 }
 

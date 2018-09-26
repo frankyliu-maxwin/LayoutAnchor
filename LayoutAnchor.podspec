@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'LayoutAnchor'
-  s.version  = '4.0.2'
+  s.version  = '4.2.0'
   s.license  = 'MIT'
   s.summary  = "An autolayout anchor wrapper."
   s.homepage = 'https://github.com/yume190/LayoutAnchor'

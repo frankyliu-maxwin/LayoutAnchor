@@ -9,12 +9,12 @@
 import UIKit
 
 public struct LayoutAttribute {
-    var view:Any
-    var attribute:NSLayoutAttribute
-    var multiplier:CGFloat
-    var constant:CGFloat
+    var view: Any
+    var attribute: NSLayoutConstraint.Attribute
+    var multiplier: CGFloat
+    var constant: CGFloat
     
-    init(view:Any, attribute: NSLayoutAttribute, constant:CGFloat = 0, multiplier:CGFloat = 1.0) {
+    init(view:Any, attribute: NSLayoutConstraint.Attribute, constant:CGFloat = 0, multiplier:CGFloat = 1.0) {
         self.view = view
         self.attribute = attribute
         self.multiplier = multiplier

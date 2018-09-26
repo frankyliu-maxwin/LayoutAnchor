@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: left: LayoutAttribute, right: LayoutAttribute
 extension LayoutAttribute {
-    static private func generate(left: LayoutAttribute, right: LayoutAttribute, relation: NSLayoutRelation) -> NSLayoutConstraint {
+    static private func generate(left: LayoutAttribute, right: LayoutAttribute, relation: NSLayoutConstraint.Relation) -> NSLayoutConstraint {
         return NSLayoutConstraint(
             item:left.view, attribute: left.attribute,
             relatedBy: relation,
@@ -35,7 +35,7 @@ extension LayoutAttribute {
 
 // MARK: left: LayoutAttribute, right: constant
 extension LayoutAttribute {
-    static private func generate(left: LayoutAttribute, constant: CGFloat, relation: NSLayoutRelation) -> NSLayoutConstraint {
+    static private func generate(left: LayoutAttribute, constant: CGFloat, relation: NSLayoutConstraint.Relation) -> NSLayoutConstraint {
         return NSLayoutConstraint(
             item:left.view, attribute: left.attribute,
             relatedBy: relation,
