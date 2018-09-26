@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.social_media_url = "https://www.facebook.com/yume190"
   s.source   = { :git => 'https://github.com/yume190/LayoutAnchor.git', :tag => s.version }
 
+  s.swift_version = '4.2'
   s.ios.deployment_target = '9.0'
   s.source_files = ['LayoutAnchor/Anchor/*.swift', 'LayoutAnchor/AutoLayoutExtension/*.swift']
 end
